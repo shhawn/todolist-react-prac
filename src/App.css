@@ -1,38 +1,77 @@
+@import url('https://webfontworld.github.io/pretendard/Pretendard.css');
+
+* {
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+  box-sizing: border-box;
+}
+ul, ol, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .App {
+  max-width: 500px;
+  min-height: 100vh;
+  background: #f6f6f6;
+  margin: 0 auto;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+.Insert h1 {
+  background: #eaf9ff;
+  color: #333;
+  padding: 1.5rem;
+  font-size: 2.5rem;
+  font-style: oblique;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Insert form input[type="text"] {
+  width: 100%;
+  font-size: 1.5rem;
+  padding: .8rem;
+  border: 1px solid #ddd;
+  outline: none;
+  color: #666;
+  border-left: none;
+  border-right: none;
+}
+.Insert form input[type="text"]::placeholder {
+  color: #ccc;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.List ul {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 1.5rem;
+  gap: 1rem;
 }
-
-.App-link {
-  color: #61dafb;
+.List ul li {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: .6rem;
+  position: relative;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.List ul li .date {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+.List ul li .todo {
+  font-size: 1.4rem;
+  letter-spacing: -.05rem;
+  line-height: 1.4;
+  padding-right: 5rem;
+}
+.List ul li .remove {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  text-indent: -9999px;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: none;
+  background: #ce0000 url("./close.png") no-repeat center / .8rem;
+  cursor: pointer;
 }
