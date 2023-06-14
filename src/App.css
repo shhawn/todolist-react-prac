@@ -45,13 +45,12 @@ ul, ol, li {
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  gap: 1rem;
 }
 .List ul li {
-  background: #fff;
   padding: 1.5rem;
   border-radius: .6rem;
   position: relative;
+  margin-bottom: 1rem;
 }
 .List ul li .date {
   font-size: 1.1rem;
@@ -64,7 +63,9 @@ ul, ol, li {
   line-height: 1.4;
   padding-right: 5rem;
 }
-.List ul li .remove {
+.List ul li .remove,
+.List ul li .modify,
+.List ul li .success {
   position: absolute;
   bottom: 1.5rem;
   right: 1.5rem;
@@ -74,4 +75,16 @@ ul, ol, li {
   border: none;
   background: #ce0000 url("./close.png") no-repeat center / .8rem;
   cursor: pointer;
+}
+.List ul li .modify {
+  right: 3.8rem;
+  background: #666;
+}
+.List ul li .success {
+  right: 3.8rem;
+  background: green;
+}
+
+.bg-fff {
+  background: #fff;
 }

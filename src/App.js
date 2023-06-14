@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 
 import Insert from './Insert';
-import List from './List';
+import Lists from './Lists';
 import './App.css';
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <Insert insertData={insertData}/>
-      <List data={data} setData={setData} />
+      <Lists data={data} setData={setData} />
     </div>
   );
 }
