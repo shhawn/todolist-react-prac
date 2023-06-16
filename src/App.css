@@ -84,6 +84,12 @@ ul, ol, li {
   right: 3.8rem;
   background: green;
 }
+.List textarea {
+  width: 19rem;
+  border: 1px solid #ddd;
+  font-size: 1.1rem;
+  outline: none;
+}
 
 .bg-fff {
   background: #fff;
