@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 
-import Insert from './Insert';
-import Lists from './Lists';
+import Insert from './components/Insert';
+import Lists from './components/Lists';
 import './App.css';
 
 function App() {
