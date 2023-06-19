@@ -1,16 +1,20 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 
-const Insert = ({ insertData }) => {
+const Insert = React.memo(({ insertData }) => {
+  console.log('Insert Rerendering');
+
   const [todo, setTodo] = useState();
   const todoInput = useRef();
+
   const insertTodo = (e) => {
     setTodo(e.target.value);
   }
+
   const dataSubmit = (e) => {
     e.preventDefault();
     insertData(todo);
     todoInput.current.value = '';
-  }
+  };
 
   return (
     <div className="Insert">
@@ -20,6 +24,6 @@ const Insert = ({ insertData }) => {
       </form>
     </div>
   )
-}
+})
 
 export default Insert;

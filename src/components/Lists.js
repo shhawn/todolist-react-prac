@@ -1,7 +1,8 @@
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import List from './List';
 
-const Lists = ({ data, setData }) => {
+const Lists = ({ data, setData, removeList, modifyList }) => {
+  console.log('List Rerendering');
   
   const handleEnd = (result) => {
     console.log(result);
@@ -41,6 +42,8 @@ const Lists = ({ data, setData }) => {
                       setData={setData}
                       provided={provided}
                       snapshot={snapshot}
+                      removeList={removeList} 
+                      modifyList={modifyList}
                     />
                   )}
                 </Draggable>

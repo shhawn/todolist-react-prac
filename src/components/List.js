@@ -1,65 +1,48 @@
 import React, { useState } from 'react';
 
 const List = ({
-  id, data, setData, provided, snapshot, date, todo
+  id, data, setData, provided, snapshot, date, todo, removeList, modifyList
 }) => {
+  console.log('List Rerendering');
+
   const [isModify, setIsModify] = useState(false);
   const [modifyData, setModifyData] = useState(todo);
 
-  const removeList = (key) => {
-    let removedData = data.filter((item) => item.seq !== key);
-    setData(removedData);
+  const handleRemoveList = () => {
+    removeList(id);
   };
 
-  const modifyList = (key) => {
-    // 수정할 내용 작성
-    let newData = data.map(item => item.seq === key ? {...item, do: modifyData} : item);
-    setData(newData);
+  const handleModifyList = () => {
+    modifyList(id, modifyData);
     setIsModify(!isModify);
   };
 
-  const cancelModify = () => {
+  const handleCancelModify = () => {
     setModifyData(todo);
     setIsModify(!isModify);
-  }
+  };
 
   return (
     <div>
-      <li key={id} {...provided.draggableProps} ref={provided.innerRef} {...provided.dragHandleProps} className={`${snapshot.isDragging ? "bg-fff" : "bg-fff"}`}>
+      <li key={id} {...provided.draggableProps} ref={provided.innerRef} {...provided.dragHandleProps} className={`${snapshot.isDragging ? 'bg-fff' : 'bg-fff'}`}>
         <p className="date">{date}</p>
         {!isModify ? (
           <div>
             <p className="todo">{todo}</p>
-            <button
-              type="button"
-              className="modify"
-              onClick={() => setIsModify(!isModify)}
-            >
+            <button type="button" className="modify" onClick={() => setIsModify(!isModify)}>
               수정
             </button>
-            <button
-              type="button"
-              className="remove"
-              onClick={() => removeList(id)}
-            >
+            <button type="button" className="remove" onClick={handleRemoveList}>
               삭제
             </button>
           </div>
         ) : (
           <div>
-            <textarea onChange={(e) => setModifyData(e.target.value)} value={modifyData}></textarea>
-            <button
-              type="button"
-              className="success"
-              onClick={() => modifyList(id)}
-            >
+            <textarea onChange={(e) => setModifyData(e.target.value)} value={modifyData} />
+            <button type="button" className="success" onClick={handleModifyList}>
               수정완료
             </button>
-            <button
-              type="button"
-              className="cancel"
-              onClick={cancelModify}
-            >
+            <button type="button" className="cancel" onClick={handleCancelModify}>
               수정취소
             </button>
           </div>
