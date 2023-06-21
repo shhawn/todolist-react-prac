@@ -5,8 +5,6 @@ const Lists = ({ data, setData, removeList, modifyList }) => {
   console.log('List Rerendering');
   
   const handleEnd = (result) => {
-    console.log(result);
-
     if (!result.destination) return;
     const newTodoData = [...data];
     

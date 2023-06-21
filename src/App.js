@@ -8,17 +8,6 @@ function App() {
   const [data, setData] = useState([]);
   let index = useRef(0);
 
-  // const insertData = useCallback((todo) => {
-  //   let info = {
-  //     seq: index.current,
-  //     do: todo,
-  //     date: new Date().toLocaleString().replace(/-/g, '.')
-  //   }
-  //   setData([info, ...data]);
-  //   index.current++;
-  //   console.log(data);
-  // });
-
   const insertData = useCallback(
     (todo) => {
       setData((prevData) => {
